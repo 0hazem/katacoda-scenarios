@@ -23,7 +23,7 @@
 		}
 	},
 	"environment": {
-		"uilayout": ""
+		"uilayout": "terminal"
 	},
 	"backend": {
 		"imageid": "kubernetes"
