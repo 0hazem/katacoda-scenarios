@@ -1,0 +1,37 @@
+[
+
+    {
+        "text": "Edit the deployment configuration for myapp to limit the resources of CPU & Memory to 500m & 1024M respectively",
+        "subtext": "in the current(default) namespace",
+        "hint": "Modify YAML file for the myapp Deployment configuration",
+            "type": "config_test",
+        "test_type": "kubernetes",
+        "tests": {
+            "object": "Pod",
+            "name": "myapp",
+            "spec": "Pod Name: myapp",
+            "jmespath": "items[?metadata.name=='myapp'].metadata.name",
+            "state": "present"
+        },		
+		"before": {
+            "type": "kubernetes",
+            "action": "create",
+            "config": {
+              "apiVersion": "v1",
+              "kind": "Pod",
+              "metadata": {
+                "name": "myapp"
+              },
+              "spec": {
+                "containers": [
+                  {
+                    "name": "ubuntu",
+                    "image": "ubuntu",
+                  }
+                ]
+              }
+            }
+        }
+        }
+		
+]		
